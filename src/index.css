@@ -1,0 +1,313 @@
+:root {
+  --bg-color: #0B0715;
+  --panel-bg: #171126;
+  --grid-line: #342852;
+  --primary: #8B5CF6;
+  --secondary: #06B6D4;
+  --text-main: #F8FAFC;
+  --text-muted: #9CA3AF; /* generic slate-400 */
+  --font-display: 'JetBrains Mono', 'Space Mono', monospace;
+  --font-body: 'Geist', 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  min-height: 100vh;
+  /* background grid pattern for industrial feel */
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-display);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: normal;
+  text-wrap: balance;
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.typewriter {
+  font-family: var(--font-display);
+  color: var(--secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.tech-stack {
+  font-family: var(--font-display);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-top: auto;
+}
+
+.subsection-title {
+  color: var(--text-main);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.structural-container {
+  width: 100%;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-border {
+  border-bottom: 1px solid var(--grid-line);
+  padding: 4rem 3rem;
+}
+
+.section-border h2 {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  border-bottom: 1px solid var(--grid-line);
+  font-family: var(--font-display);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: color 0.2s, border-bottom 0.2s;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a.active-link {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-thesis {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-family: var(--font-display);
+  color: var(--text-main);
+  max-width: 800px;
+}
+
+.btn-primary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: background-color 0.2s, color 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+  color: var(--bg-color);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--grid-line);
+  padding: 1.5rem;
+}
+
+.category-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--secondary);
+  border-bottom: 1px solid var(--grid-line);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.progress-bar-container {
+  width: 120px;
+  height: 8px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--grid-line);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--primary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  border: 1px solid var(--grid-line);
+  background-color: var(--panel-bg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-title {
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.academic-log {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.academic-item {
+  border: 1px solid var(--grid-line);
+  padding: 1.5rem;
+  background-color: var(--panel-bg);
+}
+
+.sys-log {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--grid-line);
+  padding: 1rem 3rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--secondary);
+  z-index: 10;
+}
+
+.spotify-player-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--panel-bg);
+  border-bottom: 1px solid var(--primary);
+  padding: 0.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+.spotify-track-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spotify-album-art {
+  width: 40px;
+  height: 40px;
+  background-color: var(--grid-line);
+  border-radius: 4px;
+}
+
+.spotify-track-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.spotify-track-name {
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.spotify-artist {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.spotify-controls {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.spotify-btn {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  font-size: 1.2rem;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.spotify-btn:hover {
+  color: var(--primary);
+}
+
+.spotify-status {
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
