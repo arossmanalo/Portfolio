@@ -1,100 +1,63 @@
 import React from 'react';
-import { useOutletContext } from 'react-router-dom';
 
 const About = () => {
-  const { handleHover } = useOutletContext();
-
   return (
-    <section className="section-border" id="about" onMouseEnter={() => handleHover('ABOUT')}>
-      <h2>// 02. ABOUT (BACKGROUND & CAPABILITIES)</h2>
+    <section className="about-section" id="about">
+      <h2>ABOUT ME</h2>
       
-      {/* Academic Log */}
-      <div className="about-subsection">
-        <h3 className="subsection-title">ACADEMIC LOG</h3>
-        <div className="academic-log">
-          <div className="academic-item">
-            <h4 className="category-title">[ DEGREE / CERTIFICATION ]</h4>
-            <p className="project-title">{'> B.S. in Information Technology'}</p>
-            <p>- Major in Systems Development</p>
-          </div>
-          <div className="academic-item">
-            <h4 className="category-title">[ INSTITUTION & TIMELINE ]</h4>
-            <p className="project-title">{'> University / College Name'}</p>
-            <p>[ 20XX - 20XX ]</p>
+      <div className="about-grid">
+        {/* Academic Log */}
+        <div className="glass-panel">
+          <h3 style={{ color: 'var(--primary)', marginBottom: '1.5rem', fontSize: '1.2rem', textTransform: 'uppercase' }}>Academic Background</h3>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className="glass-card">
+              <h4>B.S. in Information Technology</h4>
+              <p>Major in Systems Development</p>
+              <div className="tags-container">
+                <span className="tag">Currently Enrolled</span>
+              </div>
+            </div>
+            <div className="glass-card">
+              <h4>University / College Name</h4>
+              <p>20XX - 20XX</p>
+              <p style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>Focused on software engineering, UI/UX design, and scalable web architectures.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Skills Grid */}
-      <div className="about-subsection" style={{ marginTop: '3rem' }}>
-        <h3 className="subsection-title">TECHNICAL CAPABILITIES</h3>
-        <div className="skills-grid">
-          <div className="skill-category">
-            <h4 className="category-title">[ CORE STACK ]</h4>
-            <div className="skill-item">
-              <span>REACT.JS</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '90%'}}></div></div>
+        {/* Technical Capabilities */}
+        <div className="glass-panel">
+          <h3 style={{ color: 'var(--primary)', marginBottom: '1.5rem', fontSize: '1.2rem', textTransform: 'uppercase' }}>Technical Capabilities</h3>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className="glass-card">
+              <h4>Core Stack</h4>
+              <div className="tags-container">
+                <span className="tag">React.js</span>
+                <span className="tag">Vite</span>
+                <span className="tag">TailwindCSS</span>
+                <span className="tag">TypeScript</span>
+              </div>
             </div>
-            <div className="skill-item">
-              <span>VITE</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '95%'}}></div></div>
+            
+            <div className="glass-card">
+              <h4>Infrastructure & Tools</h4>
+              <div className="tags-container">
+                <span className="tag">Node.js</span>
+                <span className="tag">Git</span>
+                <span className="tag">Vercel</span>
+                <span className="tag">Figma</span>
+              </div>
             </div>
-            <div className="skill-item">
-              <span>TAILWINDCSS</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '100%'}}></div></div>
-            </div>
-            <div className="skill-item">
-              <span>TYPESCRIPT</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '75%'}}></div></div>
-            </div>
-          </div>
-
-          <div className="skill-category">
-            <h4 className="category-title">[ INFRASTRUCTURE & TOOLS ]</h4>
-            <div className="skill-item">
-              <span>NODE.JS</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '80%'}}></div></div>
-            </div>
-            <div className="skill-item">
-              <span>GIT VERSIONING</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '85%'}}></div></div>
-            </div>
-            <div className="skill-item">
-              <span>VERCEL</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '90%'}}></div></div>
-            </div>
-            <div className="skill-item">
-              <span>LINUX / BASH</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '70%'}}></div></div>
-            </div>
-          </div>
-
-          <div className="skill-category">
-            <h4 className="category-title">[ DESIGN & UX ]</h4>
-            <div className="skill-item">
-              <span>WIREFRAMING</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '85%'}}></div></div>
-            </div>
-            <div className="skill-item">
-              <span>ACCESSIBILITY</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '90%'}}></div></div>
-            </div>
-            <div className="skill-item">
-              <span>INTERACTION DESIGN</span>
-              <div className="progress-bar-container"><div className="progress-bar-fill" style={{width: '80%'}}></div></div>
-            </div>
-          </div>
-
-          <div className="skill-category">
-            <h4 className="category-title">[ CURRENTLY EXPLORING ]</h4>
-            <div className="skill-item">
-              <span>WebGL / Three.js</span>
-            </div>
-            <div className="skill-item">
-              <span>LLM Integration</span>
-            </div>
-            <div className="skill-item">
-              <span>Rust (WASM)</span>
+            
+            <div className="glass-card">
+              <h4>Design & UX</h4>
+              <div className="tags-container">
+                <span className="tag">Wireframing</span>
+                <span className="tag">Interaction Design</span>
+                <span className="tag">Accessibility</span>
+              </div>
             </div>
           </div>
         </div>
