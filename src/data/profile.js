@@ -5,7 +5,7 @@ export const profile = {
   tagline: 'I love software development, and I also make niche projects.',
   bio: [
     "I'm a 3rd-year BSIT student at De La Salle Lipa, majoring in System Development. I like building things that people actually use, from a POS running in our laundry shop's branches to a funding navigator that made the top 30 at a national hackathon.",
-    "I'm a member of the ITEQS team at JPCS DLSL Chapter, and I'm working toward becoming a project manager and full stack developer. I'm still learning, and I'm grateful for every team and hackathon that has pushed me forward.",
+    "I'm the ITEQS Manager at JPCS DLSL Chapter, and I'm working toward becoming a project manager and full stack developer. I'm still learning, and I'm grateful for every team and hackathon that has pushed me forward.",
   ],
   location: 'Candelaria, Quezon · Lipa City, Batangas',
   email: 'manaloarylross@gmail.com',

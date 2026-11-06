@@ -15,11 +15,11 @@ export const achievements = [
   },
   {
     figure: 'ITEQS',
-    figureLabel: 'team member',
-    rank: 'Member',
+    figureLabel: 'manager',
+    rank: 'Manager',
     title: 'JPCS DLSL Chapter',
-    // TODO(confirm): add one concrete thing Aryl did as ITEQS member
-    text: 'Part of the ITEQS team at the JPCS DLSL Chapter.',
+    // TODO(confirm): add one concrete thing Aryl did as ITEQS Manager
+    text: 'ITEQS Manager at the JPCS DLSL Chapter.',
   },
   {
     figure: '2',
@@ -63,7 +63,7 @@ export const sections = [
 
 // Hero timing strip. Tones follow F1 timing screens: purple, green, yellow.
 export const sectors = [
-  { id: 'S1', value: 'TOP 30', label: 'eGov PH Hackathon 2026', tone: 'purple' },
-  { id: 'S2', value: '2 BRANCHES', label: 'Running my Laundry POS', tone: 'green' },
-  { id: 'S3', value: 'LAP 3', label: '3rd-year BSIT, De La Salle Lipa', tone: 'yellow' },
+  { id: 'S1', value: 'ITEQS MANAGER', label: 'JPCS DLSL Chapter', tone: 'purple' },
+  { id: 'S2', value: 'BASE LIPA', label: 'Batangas, Philippines', tone: 'green' },
+  { id: 'S3', value: '3RD YEAR BSIT', label: 'System Development, DLSL', tone: 'yellow' },
 ];

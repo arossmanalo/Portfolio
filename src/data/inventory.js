@@ -40,7 +40,7 @@ export const inventory = [
     label: 'Other',
     items: [
       { abbr: 'ED', name: 'BSIT, System Development', note: '3rd year at De La Salle Lipa.', usedIn: ['Education'] },
-      { abbr: 'JP', name: 'JPCS DLSL Chapter', note: 'Member of the ITEQS team.', usedIn: ['Organisation'] },
+      { abbr: 'JP', name: 'JPCS DLSL Chapter', note: 'ITEQS Manager.', usedIn: ['Organisation'] },
       { abbr: 'FL', name: 'Filipino & English', note: 'I build for both, including Taglish.', usedIn: ['Languages'] },
       { abbr: 'MU', name: 'Music', note: 'What I have on while I code.', usedIn: ['Off duty'] },
       { abbr: 'GM', name: 'Gaming', note: 'It is also why I build games.', usedIn: ['Off duty'] },
