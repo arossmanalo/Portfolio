@@ -1,13 +1,11 @@
 import { achievements, sideQuests } from '../data/extras';
+import ScreenHead from './ScreenHead';
 
 export function Achievements() {
   return (
     <section className="screen" id="wins">
       <div className="wrap">
-        <div className="screen-head" data-reveal>
-          <span className="idx">05</span>
-          <h2>Achievements</h2>
-        </div>
+        <ScreenHead idx="05" title="Podium" note="Achievements" />
         <div className="cards">
           {achievements.map(a => (
             <article className="panel card" key={a.title} data-reveal>
@@ -30,10 +28,7 @@ export function SideQuests() {
   return (
     <section className="screen" id="side">
       <div className="wrap">
-        <div className="screen-head" data-reveal>
-          <span className="idx">06</span>
-          <h2>Side quests</h2>
-        </div>
+        <ScreenHead idx="06" title="Sprint races" note="Side projects" />
         <div className="cards">
           {sideQuests.map(s => (
             <a
@@ -54,7 +49,7 @@ export function SideQuests() {
           ))}
         </div>
         <p className="hint" style={{ marginTop: '1.5rem' }} data-reveal>
-          Psst. There's a hidden level. ↑ ↑ ↓ ↓ ← → ← → B A
+          Psst. There's a hidden pit stop. ↑ ↑ ↓ ↓ ← → ← → B A
         </p>
       </div>
     </section>

@@ -92,7 +92,7 @@ export default function HoloCard({ photo }) {
       role="button"
       tabIndex={0}
       aria-pressed={flipped}
-      aria-label="Player card. Press to flip."
+      aria-label="Driver card. Press to flip."
       onClick={toggle}
       onKeyDown={onKey}
     >
@@ -131,7 +131,7 @@ export default function HoloCard({ photo }) {
 
           <div className="holo-face back">
             <div className="holo-inner back-inner">
-              <span className="label">Loadout</span>
+              <span className="label">Car setup</span>
               <h3>{profile.short}</h3>
               <div className="tags">
                 {profile.loadout.map(t => (

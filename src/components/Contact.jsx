@@ -1,6 +1,7 @@
 import { profile } from '../data/profile';
 import { useToast } from '../hooks';
 import Magnetic from './Magnetic';
+import ScreenHead from './ScreenHead';
 
 export default function Contact() {
   const [toast, setToast] = useToast();
@@ -17,10 +18,7 @@ export default function Contact() {
   return (
     <section className="screen" id="contact">
       <div className="wrap">
-        <div className="screen-head" data-reveal>
-          <span className="idx">07</span>
-          <h2>Continue?</h2>
-        </div>
+        <ScreenHead idx="07" title="Team radio" note="Contact" />
         <div className="panel contact-panel" data-reveal>
           <h3>Let's build something</h3>
           <p>Open to internships, collaborations and projects. I'd love to hear from you.</p>

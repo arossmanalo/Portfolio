@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { inventory } from '../data/inventory';
 import { reducedMotion } from '../hooks';
+import ScreenHead from './ScreenHead';
 
 export default function Inventory() {
   const [tab, setTab] = useState(0);
@@ -27,13 +28,10 @@ export default function Inventory() {
   return (
     <section className="screen" id="inventory">
       <div className="wrap">
-        <div className="screen-head" data-reveal>
-          <span className="idx">03</span>
-          <h2>Inventory</h2>
-        </div>
+        <ScreenHead idx="03" title="The garage" note="Tech stack & skills" />
 
         <div className="inv" data-reveal>
-          <div className="inv-tabs" role="tablist" aria-label="Inventory categories">
+          <div className="inv-tabs" role="tablist" aria-label="Garage categories">
             {inventory.map((g, i) => (
               <button
                 key={g.id}
@@ -68,10 +66,10 @@ export default function Inventory() {
             </div>
 
             <aside className="panel inv-detail" aria-live="polite">
-              <span className="label">Item</span>
+              <span className="label">Part</span>
               <h3>{item.name}</h3>
               <p>{item.note}</p>
-              <span className="label">Found in</span>
+              <span className="label">Fitted to</span>
               <div className="tags">
                 {item.usedIn.map(u => (
                   <span className="tag" key={u}>

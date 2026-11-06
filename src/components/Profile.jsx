@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { profile } from '../data/profile';
 import { reducedMotion } from '../hooks';
+import ScreenHead from './ScreenHead';
 
 function Ticker() {
   const track = useRef(null);
@@ -34,10 +35,7 @@ export default function Profile() {
   return (
     <section className="screen" id="profile">
       <div className="wrap">
-        <div className="screen-head" data-reveal>
-          <span className="idx">02</span>
-          <h2>Player profile</h2>
-        </div>
+        <ScreenHead idx="02" title="Driver profile" note="About me" />
         <div className="profile-grid">
           <div className="panel" data-reveal>
             <p className="label" style={{ marginBottom: '1rem' }}>
@@ -49,10 +47,11 @@ export default function Profile() {
           </div>
           <div className="panel" data-reveal>
             <p className="label" style={{ marginBottom: '0.5rem' }}>
-              Focus
+              Race programme
             </p>
-            {profile.focus.map(f => (
+            {profile.focus.map((f, i) => (
               <div className="focus-row" key={f.label}>
+                <b>{i + 1}</b>
                 <span>{f.label}</span>
                 <span>{f.level}</span>
               </div>

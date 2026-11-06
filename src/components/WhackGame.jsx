@@ -67,10 +67,10 @@ export default function WhackGame({ onClose }) {
   };
 
   return (
-    <div className="game-overlay" role="dialog" aria-modal="true" aria-label="Hidden level: Whack">
+    <div className="game-overlay" role="dialog" aria-modal="true" aria-label="Hidden pit stop game">
       <div className="panel game-box">
-        <h3>Hidden level unlocked</h3>
-        <p className="label">Whack as many as you can in {ROUND}s</p>
+        <h3>Hidden pit stop unlocked</h3>
+        <p className="label">Hit every tyre you can in {ROUND}s</p>
         <div className="game-hud">
           <span>TIME {time}</span>
           <span>SCORE {score}</span>
@@ -82,10 +82,8 @@ export default function WhackGame({ onClose }) {
               key={i}
               className={`hole ${i === active ? 'up' : ''}`}
               onClick={() => whack(i)}
-              aria-label={i === active ? 'Target' : 'Empty hole'}
-            >
-              {i === active ? '🟣' : ''}
-            </button>
+              aria-label={i === active ? 'Tyre' : 'Empty bay'}
+            />
           ))}
         </div>
         <div className="cta-row" style={{ justifyContent: 'center' }}>

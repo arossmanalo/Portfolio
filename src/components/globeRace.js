@@ -180,7 +180,7 @@ function buildGlobe(scene) {
         varying vec3 vV;
         void main() {
           float rim = pow(1.0 - max(dot(normalize(vN), normalize(vV)), 0.0), 3.0);
-          gl_FragColor = vec4(mix(vec3(0.028, 0.018, 0.055), vec3(0.3, 0.17, 0.62), rim), 1.0);
+          gl_FragColor = vec4(mix(vec3(0.012, 0.028, 0.065), vec3(0.1, 0.32, 0.72), rim), 1.0);
         }`,
     })
   );
@@ -208,7 +208,7 @@ function buildGlobe(scene) {
         void main() {
           float d = abs(dot(normalize(vN), normalize(vV)));
           float glow = pow(smoothstep(0.0, 0.52, d), 4.0) * 0.42;
-          gl_FragColor = vec4(vec3(0.5, 0.3, 1.0) * glow, glow);
+          gl_FragColor = vec4(vec3(0.2, 0.52, 1.0) * glow, glow);
         }`,
     })
   );
@@ -239,7 +239,7 @@ function buildGlobe(scene) {
         size: 0.0062,
         map: dotTexture(),
         alphaTest: 0.5,
-        color: '#a48fe0',
+        color: '#86b8ee',
       })
     )
   );
@@ -258,7 +258,7 @@ function buildGlobe(scene) {
   scene.add(
     new THREE.LineSegments(
       coastGeometry,
-      new THREE.LineBasicMaterial({ color: '#d9ccff', transparent: true, opacity: 0.55 })
+      new THREE.LineBasicMaterial({ color: '#dcebff', transparent: true, opacity: 0.55 })
     )
   );
 
@@ -273,7 +273,7 @@ function buildGlobe(scene) {
   scene.add(
     new THREE.Points(
       starGeometry,
-      new THREE.PointsMaterial({ size: 0.028, color: '#cfc6e6', transparent: true, opacity: 0.7 })
+      new THREE.PointsMaterial({ size: 0.028, color: '#d3e0f2', transparent: true, opacity: 0.7 })
     )
   );
 }
@@ -452,12 +452,12 @@ function buildTrail(scene, color) {
 export function createGlobeRace({ canvas, onStop, onLand }) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.setClearColor('#060409');
+  renderer.setClearColor('#050914');
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(42, 1, 0.004, 40);
 
-  scene.add(new THREE.HemisphereLight('#ffffff', '#3a2a66', 1.6));
+  scene.add(new THREE.HemisphereLight('#ffffff', '#2a4a7a', 1.6));
   const sun = new THREE.DirectionalLight('#ffffff', 1.6);
   scene.add(sun);
 

@@ -52,18 +52,18 @@ export const sideQuests = [
 ];
 
 export const sections = [
-  { id: 'start', label: 'Start' },
-  { id: 'profile', label: 'Profile' },
-  { id: 'inventory', label: 'Inventory' },
-  { id: 'quests', label: 'Quests' },
-  { id: 'wins', label: 'Wins' },
-  { id: 'side', label: 'Side quests' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'start', label: 'Grid' },
+  { id: 'profile', label: 'Driver' },
+  { id: 'inventory', label: 'Garage' },
+  { id: 'quests', label: 'Races' },
+  { id: 'wins', label: 'Podium' },
+  { id: 'side', label: 'Sprints' },
+  { id: 'contact', label: 'Radio' },
 ];
 
-// Hero timing strip. Tones follow F1 timing screens: purple, green, yellow.
+// Hero timing strip, in the site colours.
 export const sectors = [
-  { id: 'S1', value: 'ITEQS MANAGER', label: 'JPCS DLSL Chapter', tone: 'purple' },
-  { id: 'S2', value: 'BASE LIPA', label: 'Batangas, Philippines', tone: 'green' },
-  { id: 'S3', value: '3RD YEAR BSIT', label: 'System Development, DLSL', tone: 'yellow' },
+  { id: 'S1', value: 'ITEQS MANAGER', label: 'JPCS DLSL Chapter', tone: 'red' },
+  { id: 'S2', value: 'BASE LIPA', label: 'Batangas, Philippines', tone: 'white' },
+  { id: 'S3', value: '3RD YEAR BSIT', label: 'System Development, DLSL', tone: 'blue' },
 ];

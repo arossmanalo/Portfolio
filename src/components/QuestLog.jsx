@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { projects } from '../data/projects';
 import { reducedMotion } from '../hooks';
+import ScreenHead from './ScreenHead';
 
 export default function QuestLog() {
   const [index, setIndex] = useState(0);
@@ -38,10 +39,7 @@ export default function QuestLog() {
   return (
     <section className="screen" id="quests" ref={section}>
       <div className="wrap">
-        <div className="screen-head" data-reveal>
-          <span className="idx">04</span>
-          <h2>Main quests</h2>
-        </div>
+        <ScreenHead idx="04" title="Grand Prix" note="Projects" />
         <div className="quest-grid" data-reveal>
           <div>
             <div className="quest-list" role="tablist" aria-label="Projects">
@@ -53,12 +51,12 @@ export default function QuestLog() {
                   className={`quest-item ${i === index ? 'on' : ''}`}
                   onClick={() => setIndex(i)}
                 >
-                  <small>{String(i + 1).padStart(2, '0')}</small>
+                  <small>{i + 1}</small>
                   {p.title}
                 </button>
               ))}
             </div>
-            <p className="hint">↑ ↓ / W S to browse quests</p>
+            <p className="hint">↑ ↓ / W S to browse races</p>
           </div>
 
           <div className="panel quest-detail" role="tabpanel">

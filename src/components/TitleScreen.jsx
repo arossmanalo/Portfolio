@@ -12,7 +12,7 @@ const loadTrack = () => import('./Hyperspeed');
 const Hyperspeed = lazy(loadTrack);
 
 const TAIL_LIGHTS = ['#ff2800', '#e10600', '#ff5a1f'];
-const HEAD_LIGHTS = ['#c084fc', '#8b5cf6', '#ffffff'];
+const HEAD_LIGHTS = ['#5aaeff', '#1e6fd9', '#ffffff'];
 const POLES = ['#e10600'];
 
 // the hero should survive a browser without WebGL
@@ -32,7 +32,7 @@ const wordmark = {
   fontSize: 240,
   letterSpacing: -0.02,
   align: 'left',
-  accentColor: '#C084FC',
+  accentColor: '#5AAEFF',
   intro: 'assemble',
   introDuration: 1.3,
 };
@@ -78,8 +78,8 @@ export default function TitleScreen() {
                   tailColors={TAIL_LIGHTS}
                   headColors={HEAD_LIGHTS}
                   poleColors={POLES}
-                  roadColor="#0d0812"
-                  lineColor="#3a2a4d"
+                  roadColor="#0a0f1c"
+                  lineColor="#2a3a55"
                 />
               </Suspense>
             )}
@@ -100,7 +100,7 @@ export default function TitleScreen() {
               {go && (
                 <>
                   <div className="hero-line">
-                    <TechText {...wordmark} text="ARYL" color="#F4EEFF" />
+                    <TechText {...wordmark} text="ARYL" color="#F5F8FF" />
                   </div>
                   <div className="hero-line">
                     <TechText {...wordmark} text="ROSS" color="#FF2A1F" sweep={false} />

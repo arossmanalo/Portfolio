@@ -32,14 +32,14 @@ export const profile = {
   stats: [
     { label: 'Year', value: '3rd · BSIT' },
     { label: 'Major', value: 'System Dev' },
-    { label: 'Guild', value: 'JPCS DLSL' },
+    { label: 'Team', value: 'JPCS DLSL' },
     { label: 'Class', value: 'Full Stack' },
   ],
   focus: [
     { label: 'Web apps', level: 'Main' },
     { label: 'Mobile apps', level: 'Main' },
     { label: 'Backend & data', level: 'Secondary' },
-    { label: 'Games', level: 'Side quest' },
+    { label: 'Games', level: 'Sprint' },
   ],
   loadout: [
     'TypeScript',
