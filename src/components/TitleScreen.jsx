@@ -8,7 +8,8 @@ import HoloCard from './HoloCard';
 import StartIntro from './StartIntro';
 
 // three.js is heavy, so the track loads in its own chunk after first paint
-const Hyperspeed = lazy(() => import('./Hyperspeed'));
+const loadTrack = () => import('./Hyperspeed');
+const Hyperspeed = lazy(loadTrack);
 
 const TAIL_LIGHTS = ['#ff2800', '#e10600', '#ff5a1f'];
 const HEAD_LIGHTS = ['#c084fc', '#8b5cf6', '#ffffff'];
@@ -49,6 +50,11 @@ export default function TitleScreen() {
   }, []);
   const endIntro = useCallback(() => setIntro(false), []);
 
+  // fetch the track during the intro, but only start it once the globe is done
+  useEffect(() => {
+    loadTrack();
+  }, []);
+
   useEffect(() => {
     if (!boost) return undefined;
     const timer = setTimeout(() => setBoost(false), 1500);
@@ -61,20 +67,22 @@ export default function TitleScreen() {
       <section className={`hero screen ${go ? 'go' : ''}`} id="start">
         <div className="hero-track">
           <TrackBoundary>
-            <Suspense fallback={null}>
-              <Hyperspeed
-                curve="racing"
-                speed={go ? 1 : 0.1}
-                boosting={boost}
-                density={44}
-                glow={0.8}
-                tailColors={TAIL_LIGHTS}
-                headColors={HEAD_LIGHTS}
-                poleColors={POLES}
-                roadColor="#0d0812"
-                lineColor="#3a2a4d"
-              />
-            </Suspense>
+            {go && (
+              <Suspense fallback={null}>
+                <Hyperspeed
+                  curve="racing"
+                  speed={1}
+                  boosting={boost}
+                  density={44}
+                  glow={0.8}
+                  tailColors={TAIL_LIGHTS}
+                  headColors={HEAD_LIGHTS}
+                  poleColors={POLES}
+                  roadColor="#0d0812"
+                  lineColor="#3a2a4d"
+                />
+              </Suspense>
+            )}
           </TrackBoundary>
         </div>
         <div className="hero-scrim" />
