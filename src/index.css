@@ -84,6 +84,7 @@ h3 {
 section.screen {
   padding: 6rem 0 3rem;
   scroll-margin-top: 1rem;
+  overflow-x: clip;
 }
 
 .screen-head {
@@ -117,8 +118,7 @@ section.screen {
   color: var(--accent);
 }
 
-.screen-head::after {
-  content: '';
+.head-flag {
   flex: 1;
   min-width: 80px;
   height: 12px;
@@ -126,6 +126,42 @@ section.screen {
   opacity: 0.55;
   -webkit-mask-image: linear-gradient(90deg, #000, transparent);
   mask-image: linear-gradient(90deg, #000, transparent);
+}
+
+/* lap tracker */
+.lap {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 90;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.lap-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--rosso);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.lap-mark {
+  position: absolute;
+  bottom: 0;
+  width: 2px;
+  height: 7px;
+  background: #fff;
+}
+
+.lap-car {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  width: 30px;
+  height: 12px;
+  margin-left: -28px;
+  filter: drop-shadow(0 0 5px rgba(255, 42, 31, 0.8));
 }
 
 /* panels */
@@ -959,6 +995,16 @@ section.screen {
   }
 }
 
+.panel .bio {
+  margin: 0 0 1rem;
+}
+
+.panel .bio-text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
 .profile-grid p {
   color: #d7e1f0;
   margin-bottom: 1rem;
@@ -1003,33 +1049,16 @@ section.screen {
   overflow: hidden;
   border-block: 2px solid var(--rosso);
   margin-top: 4rem;
+  padding-block: 0.6rem;
   background: rgba(11, 20, 38, 0.6);
 }
 
-.ticker-track {
-  display: flex;
-  width: max-content;
-  padding: 0.8rem 0;
-  will-change: transform;
-}
-
-.ticker-track span {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.1rem;
+.ticker .scroller {
+  font: italic 700 clamp(1.5rem, 3.6vw, 2.8rem) / 1.25 var(--font-display);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0 1.5rem;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.ticker-track span::after {
-  content: '//';
-  margin-left: 3rem;
-  font-style: italic;
-  font-weight: 700;
-  color: var(--rosso);
+  white-space: pre;
+  color: var(--text);
 }
 
 /* quests */
@@ -1112,6 +1141,56 @@ section.screen {
 
 .quest-detail {
   min-height: 340px;
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+  .quest-detail {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+}
+
+.quest-copy {
+  min-width: 0;
+}
+
+.circuit {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  margin-inline: auto;
+  overflow: visible;
+}
+
+.circuit path {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.circuit-bed {
+  stroke: rgba(140, 180, 235, 0.14);
+  stroke-width: 11;
+}
+
+.circuit-line {
+  stroke: #f5f8ff;
+  stroke-width: 3;
+}
+
+.circuit-tail {
+  stroke: var(--hot);
+  stroke-width: 5;
+  stroke-linecap: butt;
+}
+
+.circuit-car {
+  fill: var(--rosso);
+  stroke: #fff;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px var(--hot));
 }
 
 .quest-detail h3 {
@@ -1204,7 +1283,14 @@ section.screen {
   gap: 0.6rem;
 }
 
+.slots .slot-card {
+  padding: 0;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
 .slot {
+  width: 100%;
   aspect-ratio: 1;
   display: flex;
   flex-direction: column;
@@ -1212,10 +1298,9 @@ section.screen {
   justify-content: center;
   gap: 0.45rem;
   padding: 0.5rem;
-  background: linear-gradient(160deg, var(--panel-2), var(--panel));
+  background: transparent;
   border: 1px solid var(--line);
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .slot .abbr {
@@ -1239,7 +1324,6 @@ section.screen {
 .slot.on {
   background: rgba(225, 6, 0, 0.3);
   border-color: var(--rosso);
-  transform: translateY(-3px);
 }
 
 .slot.on .abbr {
@@ -1270,7 +1354,14 @@ section.screen {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
+.card-cell,
+.card-spark {
+  min-width: 0;
+  height: 100%;
+}
+
 .card {
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -1278,7 +1369,7 @@ section.screen {
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   filter: drop-shadow(0 0 18px rgba(30, 111, 217, 0.55));
 }
 
@@ -1289,12 +1380,17 @@ section.screen {
   border-bottom: 1px solid var(--line);
 }
 
-.card .fig strong {
-  font: italic 700 clamp(2.2rem, 5vw, 2.8rem) / 1 var(--font-display);
-  color: #fff;
+.flap {
+  min-height: 46px;
 }
 
-.card .fig span {
+.flap .split-flap-text__char {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.card .fig > span {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   text-transform: uppercase;
@@ -1319,22 +1415,88 @@ section.screen {
   align-self: flex-start;
 }
 
+/* sprint cards sit on the pixel canvas */
+.card-cell .sprint {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  user-select: auto;
+}
+
+.sprint .card {
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 19, 36, 0.35);
+}
+
 /* contact */
 .contact-panel {
+  overflow: hidden;
   text-align: center;
   padding: 3rem 1.5rem;
+}
+
+.radio-radar {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-radial-gradient(circle at 50% 50%, transparent 0 58px, rgba(90, 174, 255, 0.16) 58px 59px);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3) 20%, #000 60%);
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3) 20%, #000 60%);
+}
+
+.radio-radar i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1500px;
+  height: 1500px;
+  margin: -750px 0 0 -750px;
+  background: conic-gradient(from 0deg, rgba(90, 174, 255, 0.34), transparent 55deg);
+  animation: radar-sweep 5s linear infinite;
+}
+
+@keyframes radar-sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .radio-radar i {
+    animation: none;
+  }
+}
+
+.radio-body {
+  position: relative;
 }
 
 .contact-panel h3 {
   font-size: clamp(1.8rem, 5vw, 3rem);
   font-style: italic;
   text-transform: uppercase;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
-.contact-panel p {
-  color: var(--muted);
-  margin-bottom: 2rem;
+.radio-wave {
+  display: block;
+  width: min(460px, 100%);
+  height: 56px;
+  margin: 0 auto 1rem;
+}
+
+.contact-panel .radio-line {
+  display: block;
+  min-height: 3.4em;
+  max-width: 34rem;
+  margin: 0 auto 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: var(--text);
 }
 
 .contact-panel .cta-row {

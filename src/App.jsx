@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import Cursor from './components/Cursor';
 import HudNav from './components/HudNav';
+import LapTracker from './components/LapTracker';
 import TitleScreen from './components/TitleScreen';
 import Profile from './components/Profile';
 import Inventory from './components/Inventory';
@@ -22,6 +23,7 @@ function App() {
     <>
       <Cursor />
       <HudNav />
+      <LapTracker />
       <main ref={main}>
         <TitleScreen />
         <Profile />

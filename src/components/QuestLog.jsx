@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { projects } from '../data/projects';
 import { reducedMotion } from '../hooks';
+import CircuitMap from './CircuitMap';
 import ScreenHead from './ScreenHead';
 
 export default function QuestLog() {
@@ -19,7 +20,7 @@ export default function QuestLog() {
     );
   }, [index]);
 
-  // arrow keys / W-S move through quests while this screen is in view
+  // arrow keys / W-S move through races while this screen is in view
   useEffect(() => {
     const onKey = e => {
       const r = section.current?.getBoundingClientRect();
@@ -60,7 +61,7 @@ export default function QuestLog() {
           </div>
 
           <div className="panel quest-detail" role="tabpanel">
-            <div ref={detail} style={{ display: 'contents' }}>
+            <div className="quest-copy" ref={detail}>
               <span className="label">{quest.tag}</span>
               <h3>{quest.title}</h3>
               <p>{quest.summary}</p>
@@ -85,6 +86,7 @@ export default function QuestLog() {
                 ))}
               </div>
             </div>
+            <CircuitMap index={index} />
           </div>
         </div>
       </div>

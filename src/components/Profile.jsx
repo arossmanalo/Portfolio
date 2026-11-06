@@ -3,35 +3,30 @@ import { gsap } from 'gsap';
 import { profile } from '../data/profile';
 import { reducedMotion } from '../hooks';
 import ScreenHead from './ScreenHead';
+import ScrollReveal from './ScrollReveal';
+import ScrollVelocity from './ScrollVelocity';
 
-function Ticker() {
-  const track = useRef(null);
-
-  useEffect(() => {
-    if (reducedMotion()) return;
-    const el = track.current;
-    const tween = gsap.to(el, {
-      x: () => -el.scrollWidth / 2,
-      duration: 28,
-      ease: 'none',
-      repeat: -1,
-    });
-    return () => tween.kill();
-  }, []);
-
-  const items = [...profile.loadout, ...profile.loadout];
-  return (
-    <div className="ticker" aria-label="Tools I use">
-      <div className="ticker-track" ref={track}>
-        {items.map((t, i) => (
-          <span key={i}>{t}</span>
-        ))}
-      </div>
-    </div>
-  );
-}
+const tools = `${profile.loadout.join('  //  ')}  //  `;
 
 export default function Profile() {
+  const tower = useRef(null);
+
+  // the programme comes onto the tower one row at a time
+  useEffect(() => {
+    if (reducedMotion()) return undefined;
+    const ctx = gsap.context(() => {
+      gsap.from('.focus-row', {
+        x: -46,
+        opacity: 0,
+        duration: 0.55,
+        stagger: 0.12,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: tower.current, start: 'top 75%', once: true },
+      });
+    }, tower);
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section className="screen" id="profile">
       <div className="wrap">
@@ -41,11 +36,21 @@ export default function Profile() {
             <p className="label" style={{ marginBottom: '1rem' }}>
               About me
             </p>
-            {profile.bio.map((p, i) => (
-              <p key={i}>{p}</p>
+            {profile.bio.map(p => (
+              <ScrollReveal
+                key={p}
+                baseOpacity={0.16}
+                baseRotation={0}
+                enableBlur={false}
+                containerClassName="bio"
+                textClassName="bio-text"
+                wordAnimationEnd="center 45%"
+              >
+                {p}
+              </ScrollReveal>
             ))}
           </div>
-          <div className="panel" data-reveal>
+          <div className="panel" ref={tower} data-reveal>
             <p className="label" style={{ marginBottom: '0.5rem' }}>
               Race programme
             </p>
@@ -59,7 +64,9 @@ export default function Profile() {
           </div>
         </div>
       </div>
-      <Ticker />
+      <div className="ticker" aria-label={`Tools I use: ${profile.loadout.join(', ')}`}>
+        <ScrollVelocity texts={[tools, tools]} velocity={45} numCopies={4} outlineAlternate skewWithVelocity={8} />
+      </div>
     </section>
   );
 }
