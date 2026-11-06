@@ -60,3 +60,10 @@ export const sections = [
   { id: 'side', label: 'Side quests' },
   { id: 'contact', label: 'Contact' },
 ];
+
+// Hero timing strip. Tones follow F1 timing screens: purple, green, yellow.
+export const sectors = [
+  { id: 'S1', value: 'TOP 30', label: 'eGov PH Hackathon 2026', tone: 'purple' },
+  { id: 'S2', value: '2 BRANCHES', label: 'Running my Laundry POS', tone: 'green' },
+  { id: 'S3', value: 'LAP 3', label: '3rd-year BSIT, De La Salle Lipa', tone: 'yellow' },
+];

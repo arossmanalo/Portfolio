@@ -87,7 +87,7 @@ export default function HoloCard({ photo }) {
 
   return (
     <div
-      className="holo char-card"
+      className="holo"
       ref={root}
       role="button"
       tabIndex={0}
