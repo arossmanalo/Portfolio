@@ -1,0 +1,57 @@
+export const profile = {
+  name: 'Aryl Ross A. Manalo',
+  short: 'Aryl Ross',
+  role: 'Software Developer',
+  tagline: 'I love software development, and I also make niche projects.',
+  bio: [
+    "I'm a 3rd-year BSIT student at De La Salle Lipa, majoring in System Development. I like building things that people actually use, from a POS running in our laundry shop's branches to a funding navigator that made the top 30 at a national hackathon.",
+    "I'm a member of the ITEQS team at JPCS DLSL Chapter, and I'm working toward becoming a project manager and full stack developer. I'm still learning, and I'm grateful for every team and hackathon that has pushed me forward.",
+  ],
+  location: 'Candelaria, Quezon · Lipa City, Batangas',
+  email: 'manaloarylross@gmail.com',
+  links: {
+    linkedin: 'https://www.linkedin.com/in/aryl-ross-manalo-baa321425/',
+    github: 'https://github.com/arossmanalo',
+    resume: '/resume.pdf',
+  },
+  // Icon-style hero card. Numbers are playful self-ratings: edit freely.
+  card: {
+    rating: 90,
+    position: 'FSD',
+    positionNote: 'Full Stack Dev',
+    stats: [
+      { key: 'WEB', value: 88 },
+      { key: 'MOB', value: 80 },
+      { key: 'API', value: 82 },
+      { key: 'TWK', value: 85 },
+      { key: 'HCK', value: 92 },
+      { key: 'GAM', value: 75 },
+    ],
+    badges: ['🇵🇭', 'DLSL', 'JPCS'],
+  },
+  stats: [
+    { label: 'Year', value: '3rd · BSIT' },
+    { label: 'Major', value: 'System Dev' },
+    { label: 'Guild', value: 'JPCS DLSL' },
+    { label: 'Class', value: 'Full Stack' },
+  ],
+  focus: [
+    { label: 'Web apps', level: 'Main' },
+    { label: 'Mobile apps', level: 'Main' },
+    { label: 'Backend & data', level: 'Secondary' },
+    { label: 'Games', level: 'Side quest' },
+  ],
+  loadout: [
+    'TypeScript',
+    'React',
+    'Next.js',
+    'Node.js',
+    'React Native',
+    'Java',
+    'C#',
+    'Supabase',
+    'SQLite',
+    'Vercel',
+    'Git',
+  ],
+};

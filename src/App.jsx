@@ -1,22 +1,38 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './index.css';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
+import { useCallback, useRef, useState } from 'react';
+import Cursor from './components/Cursor';
+import HudNav from './components/HudNav';
+import TitleScreen from './components/TitleScreen';
+import Profile from './components/Profile';
+import Inventory from './components/Inventory';
+import QuestLog from './components/QuestLog';
+import { Achievements, SideQuests } from './components/CardSections';
+import Contact from './components/Contact';
+import WhackGame from './components/WhackGame';
+import { useKonami, useReveal } from './hooks';
 
 function App() {
+  const main = useRef(null);
+  const [game, setGame] = useState(false);
+  const unlock = useCallback(() => setGame(true), []);
+
+  useKonami(unlock);
+  useReveal(main);
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="projects" element={<Projects />} />
-        </Route>
-      </Routes>
-    </Router>
+    <>
+      <Cursor />
+      <HudNav />
+      <main ref={main}>
+        <TitleScreen />
+        <Profile />
+        <Inventory />
+        <QuestLog />
+        <Achievements />
+        <SideQuests />
+        <Contact />
+      </main>
+      {game && <WhackGame onClose={() => setGame(false)} />}
+    </>
   );
 }
 
